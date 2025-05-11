@@ -7,6 +7,7 @@ spec:
     matchLabels:
       app: helloweb
   template:
+    replicas: 2
     metadata:
       labels:
         app: helloweb
