@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloweb
+spec:
+  selector:
+    matchLabels:
+      app: helloweb
+  template:
+    metadata:
+      labels:
+        app: helloweb
+    spec:
+      containers:
+      - name: helloweb
+        image: alirezaarzehgar/helloweb
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
