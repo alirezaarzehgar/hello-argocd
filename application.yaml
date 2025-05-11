@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-argo-app
+  finalizers: []
+spec:
+  destination:
+    namespace: helloargocd
+    server: https://kubernetes.default.svc
+  source:
+    path: k8s
+    repoURL: https://github.com/alirezaarzehgar/hello-argocd
+    targetRevision: HEAD
+  sources: []
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
