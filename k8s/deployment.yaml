@@ -3,11 +3,11 @@ kind: Deployment
 metadata:
   name: helloweb
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: helloweb
   template:
-    replicas: 2
     metadata:
       labels:
         app: helloweb
@@ -15,6 +15,7 @@ spec:
       containers:
       - name: helloweb
         image: alirezaarzehgar/helloweb
+        imagePullPolicy: IfNotPresent
         resources:
           limits:
             memory: "128Mi"
